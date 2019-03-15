@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>vue-computed-watch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="one">
+        <input type="text" v-model="two">
+    </div>
+
+    <script>
+        var obj = new Vue({
+            el: '#app',
+            data: {
+                one: 0,  //默认0
+                two: 0,   //默认0
+            },
+            watch:{
+                one(var1,var2){
+                    console.log('one')
+                    console.log('之前的值是:',var2)
+                    console.log('改变的值是:',var1)
+
+                },
+                two(var1,var2){
+                    console.log('two')
+                    console.log('之前的值是:', var2)
+                    console.log('改变的值是:', var1)
+
+                }
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

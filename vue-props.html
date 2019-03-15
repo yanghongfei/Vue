@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div class="app" style="width:300px; margin:auto">
+    <!-- <todo></todo>   定义的模板 -->
+    <todo text="请输入内容111"></todo>
+    <todo text="请输入内容222"></todo>
+    <todo :text="text"></todo>    
+        
+    </div>
+    <script>
+          //:placeholder 会当作JS的代码进行执行变量
+        Vue.component("todo", {
+            props: ["text"],  //变量取值
+            template: `
+            <div>
+                <input type="text" v-model="val" @keyup.13="up" :placeholder="text">   
+                <ul>
+                    <li v-for="item in arr">
+                        {{ item }}
+                    </li>
+                </ul>
+            </div>
+            `,
+            data(){
+                return {
+                    val:"",
+                    arr:[]
+                }
+            },
+            methods:{
+                up(){
+                    this.arr.push(this.val);
+                    console.log(this.arr);
+                    this.val="";
+                }
+
+            }
+        })
+        //单向数据流
+        new Vue({
+            el: '.app',
+            data:{
+                text:"这是需要输入的值，传值到上面todo模板里面"
+            }
+        })
+
+    </script>
+
+</body>
+</html>

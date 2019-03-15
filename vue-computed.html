@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>vue-computed-watch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="one">
+        <input type="text" v-model="two">
+        <input type="text" v-model="three">
+        <p>相加的结果:{{ add }}</p>
+        <p>相减的结果:{{ jian }}</p>
+    </div>
+
+    <script>
+        var obj = new Vue({
+            el: '#app',
+            data: {
+                one: 0,  //默认0
+                two: 0,   //默认0
+                three: 0
+            },
+            // methods: {
+            //     add() {
+            //         return this.one * 1 + this.two * 1
+            //     },
+            //     jian() {
+            //         return this.one * 1 - this.two * 1
+            //     }
+            // }
+            //使用computed，只有操作one和two的时候才会执行computed下面的函数
+            computed: {
+                add(){
+                    console.log('add')
+                    return this.one*1 + this.two*1
+                },
+                jian(){
+                    console.log('jian')
+                    return this.one*1 - this.two*1
+                }
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

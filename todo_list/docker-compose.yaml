@@ -1,0 +1,9 @@
+todo_list:
+  restart: unless-stopped
+  image: todo_list:latest
+  volumes:
+    - /var/log/supervisor/:/var/log/supervisor/
+    - /sys/fs/cgroup:/sys/fs/cgroup
+  ports:
+    - "8002:80"
+  hostname: todo_list-test

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div class="app" style="width:300px; margin:auto">
+    <!-- <todo></todo>   定义的模板 -->
+    <todo></todo>
+    <todo></todo>
+    <todo></todo>
+        
+    </div>
+    <script>
+        Vue.component("todo", {
+            template: `
+            <div>
+                <input type="text" v-model="val" @keyup.13="up">
+                <ul>
+                    <li v-for="item in arr">
+                        {{ item }}
+                    </li>
+                </ul>
+            </div>
+            `,
+            data(){
+                return {
+                    val:"",
+                    arr:[]
+                }
+            },
+            methods:{
+                up(){
+                    this.arr.push(this.val);
+                    console.log(this.arr);
+                    this.val="";
+                }
+
+            }
+        })
+    
+        new Vue({
+            el: '.app',
+        })
+
+    </script>
+
+</body>
+</html>
