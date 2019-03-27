@@ -8,3 +8,5 @@
 	- Vue-component
 	- Vue-props
 	- Vue-todo_list  #todo_list练手小项目
+	- hello_users    #Vue2.0学习
+	- pizza-app      # webpack脚手架学习练习
